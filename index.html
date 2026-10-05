@@ -3,10 +3,164 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muslim Match</title>
+
+  <title>Muslim Match - Find Your Match</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f5ef;
+      color: #183b2b;
+    }
+
+    header {
+      background: #0f5132;
+      color: white;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 90px 20px;
+      background: white;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #d4a72c;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 5px;
+    }
+
+    .button.secondary {
+      background: #0f5132;
+    }
+
+    .features {
+      padding: 60px 8%;
+      text-align: center;
+    }
+
+    .features h2 {
+      font-size: 32px;
+      margin-bottom: 35px;
+    }
+
+    .cards {
+      display: flex;
+      gap: 25px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      width: 280px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+    }
+
+    footer {
+      background: #0f5132;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 30px;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Muslim Match</h1>
-  <p>Find a Muslim partner for marriage.</p>
+
+  <header>
+    <div class="logo">Muslim Match</div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Login</a>
+      <a href="#">Register</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Find Your Muslim Match</h1>
+
+    <p>
+      A simple place to meet Muslims looking for a meaningful relationship and marriage.
+    </p>
+
+    <a href="#" class="button">Create Account</a>
+    <a href="#" class="button secondary">Login</a>
+  </section>
+
+  <section class="features">
+
+    <h2>Why Muslim Match?</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>❤️ Meaningful Matches</h3>
+        <p>Connect with people who are looking for a serious relationship.</p>
+      </div>
+
+      <div class="card">
+        <h3>🔒 Privacy</h3>
+        <p>Keep control of your personal information and your profile.</p>
+      </div>
+
+      <div class="card">
+        <h3>🌍 Meet Muslims</h3>
+        <p>Discover potential matches from your country and around the world.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+    <p>© 2026 Muslim Match. All rights reserved.</p>
+  </footer>
+
 </body>
 </html>
