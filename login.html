@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Muslim Match - Login</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f7f4;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .box {
+      width: 100%;
+      max-width: 450px;
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    h1 {
+      text-align: center;
+      color: #176b45;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 25px;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      background: #176b45;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #125537;
+    }
+
+    button:disabled {
+      background: #999;
+    }
+
+    #message {
+      margin-top: 18px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .register {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .register a {
+      color: #176b45;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+
+    <h1>Muslim Match</h1>
+
+    <p class="subtitle">Welcome back</p>
+
+    <form id="loginForm">
+
+      <label for="email">Email</label>
+
+      <input
+        type="email"
+        id="email"
+        placeholder="Enter your email"
+        required
+      >
+
+      <label for="password">Password</label>
+
+      <input
+        type="password"
+        id="password"
+        placeholder="Enter your password"
+        required
+      >
+
+      <button type="submit" id="loginButton">
+        Login
+      </button>
+
+      <div id="message"></div>
+
+    </form>
+
+    <div class="register">
+      Don't have an account?
+      <a href="register.html">Create an account</a>
+    </div>
+
+  </div>
+
+  <script>
+
+    const SUPABASE_URL =
+      "https://erlerglteulmpgyckucy.supabase.co";
+
+    const SUPABASE_PUBLISHABLE_KEY =
+      "sb_publishable_o7kZ5jCIe_QAPLYYIANUUw_ZQ6gS2_j";
+
+    const supabaseClient =
+      window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+      );
+
+
+    const form =
+      document.getElementById("loginForm");
+
+    const button =
+      document.getElementById("loginButton");
+
+    const message =
+      document.getElementById("message");
+
+
+    form.addEventListener("submit", async function(event) {
+
+      event.preventDefault();
+
+      button.disabled = true;
+
+      button.textContent = "Logging in...";
+
+      message.textContent = "";
+
+
+      const email =
+        document.getElementById("email").value.trim();
+
+      const password =
+        document.getElementById("password").value;
+
+
+      const { data, error } =
+        await supabaseClient.auth.signInWithPassword({
+          email: email,
+          password: password
+        });
+
+
+      if (error) {
+
+        message.textContent = error.message;
+
+        button.disabled = false;
+
+        button.textContent = "Login";
+
+        return;
+      }
+
+
+      message.textContent =
+        "Login successful! Welcome to Muslim Match.";
+
+      button.disabled = false;
+
+      button.textContent = "Login";
+
+
+      /*
+        Later we will send the user
+        to their Muslim Match profile.
+      */
+
+    });
+
+  </script>
+
+</body>
+</html>
